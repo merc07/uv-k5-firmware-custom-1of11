@@ -232,8 +232,8 @@ typedef struct {
 	};
 	// [14]
 	struct {
-		uint8_t step_setting:2;              // step size index 0 ~ 15
-		uint8_t tx_power_user:30;             // 1of11 .. user power setting 0 ~ 15
+		uint8_t step_setting:4;              // step size index 0 ~ 15
+		uint8_t tx_power_user:4;             // 1of11 .. user power setting 0 ~ 15
 	};
 	// [15]
 	struct {
