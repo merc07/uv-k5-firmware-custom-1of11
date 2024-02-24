@@ -2,7 +2,8 @@
 #define __VER__          GIT_HASH
 
 //#define __VER_PREFIX__  "OEFW-"
-#define __VER_PREFIX__   "1o11-"
+//#define __VER_PREFIX__   "1o11-"
+#define __VER_PREFIX__   "Merc07"
 
 const char Version_str[] = __VER_PREFIX__ __VER__;
 #if defined(ENABLE_UART)
