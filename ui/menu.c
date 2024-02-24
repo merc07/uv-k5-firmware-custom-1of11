@@ -1279,7 +1279,7 @@ void UI_DisplayMenu(void)
 					strcpy(str, "137~174\n400~438");
 					break;
 				case FREQ_LOCK_446:
-					strcpy(str, "446.00625\n~\n446.19375");
+					strcpy(str, "PMR LPD\n446~433");
 					break;
 				#ifdef ENABLE_TX_UNLOCK_MENU
 					case FREQ_LOCK_TX_UNLOCK:
