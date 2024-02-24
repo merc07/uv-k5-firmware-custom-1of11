@@ -39,8 +39,8 @@ ENABLE_TX_TONE_HZ                := 1750
 #
 # MDC1200 2.8 kB
 ENABLE_MDC1200                   := 0
-ENABLE_MDC1200_SHOW_OP_ARG       := 1
-ENABLE_MDC1200_SIDE_BEEP         := 1
+ENABLE_MDC1200_SHOW_OP_ARG       := 0
+ENABLE_MDC1200_SIDE_BEEP         := 0
 #
 ENABLE_PWRON_PASSWORD            := 0
 ENABLE_RESET_AES_KEY             := 0
@@ -70,10 +70,10 @@ ENABLE_F_CAL_MENU                := 0
 ENABLE_FM_DEV_CAL_MENU           := 0
 ENABLE_TX_UNLOCK_MENU            := 0
 #ENABLE_TX_POWER_CAL_MENU        := 0
-ENABLE_TX_POWER_FIX              := 1
+ENABLE_TX_POWER_FIX              := 0
 ENABLE_CTCSS_TAIL_PHASE_SHIFT    := 1
-ENABLE_CONTRAST                  := 0
-ENABLE_BOOT_BEEPS                := 0
+ENABLE_CONTRAST                  := 1
+ENABLE_BOOT_BEEPS                := 1
 ENABLE_FLASH_LIGHT_SOS_TONE      := 0
 ENABLE_SHOW_CHARGE_LEVEL         := 0
 ENABLE_REVERSE_BAT_SYMBOL        := 0
@@ -95,11 +95,11 @@ ENABLE_COPY_CHAN_TO_VFO_TO_CHAN  := 1
 ENABLE_TX_AUDIO_BAR              := 0
 ENABLE_TX_AUDIO_BACKLIGHT        := 0
 # Side Button Menu 300 B
-ENABLE_SIDE_BUTT_MENU            := 0
+ENABLE_SIDE_BUTT_MENU            := 1
 # Key Lock 400 B
-ENABLE_KEYLOCK                   := 0
+ENABLE_KEYLOCK                   := 1
 # panadapter 1.5kB
-ENABLE_PANADAPTER                := 1
+ENABLE_PANADAPTER                := 0
 ENABLE_PANADAPTER_PEAK_FREQ      := 0
 # single VFO 1.5kB
 ENABLE_SINGLE_VFO_CHAN           := 1
