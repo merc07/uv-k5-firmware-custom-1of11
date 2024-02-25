@@ -1047,6 +1047,21 @@ const char *state_list[] = {"", "BUSY", "BAT LOW", "TX DISABLE", "TIMEOUT", "ALA
 				if (p_vfo->channel.dtmf_decoding_enable)
 					strcpy(str, "DTMF");
 				UI_PrintStringSmall(str, LCD_WIDTH - (7 * 4), 0, y);
+				#else		// Display power in watts instead
+				{
+				const char *WATTuser_list[] = {"0.01", "0.04", "0.14", "0.25", "0.36", "0.50", "0.60", "0.70", "0.81", "0.94", "1.05", "1.18", "1.30", "1.41", "1.54"};
+				const char *WATTpwr_list[] = {"0.50", "2.00", "5.00"};
+				const unsigned int i = p_vfo->channel.tx_power;
+				if (i == OUTPUT_POWER_USER)
+				{
+					const unsigned int i = g_tx_vfo->channel.tx_power_user;
+					strcpy(str, WATTuser_list[i-1]);
+				}
+					else
+					strcpy(str, WATTpwr_list[i]);
+				strcat(str,"w");
+				UI_PrintStringSmall(str, LCD_WIDTH - (7 * 5), 0, y);
+				}
 			#endif
 		}
 
