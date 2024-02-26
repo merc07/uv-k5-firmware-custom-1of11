@@ -1016,6 +1016,21 @@ const char *state_list[] = {"", "BUSY", "BAT LOW", "TX DISABLE", "TIMEOUT", "ALA
 				if (i == OUTPUT_POWER_USER)
 					sprintf(str + strlen(str), "%03u", g_tx_vfo->channel.tx_power_user);
 				UI_PrintStringSmall(str, x, 0, y);
+				if (!p_vfo->channel.dtmf_decoding_enable)		// Display power in watts if DTMF not enabled
+				{
+				const char *WATTuser_list[] = {"10m", "40m", "0.1", "0.3", "0.4", "0.5", "0.6", "0.7", "0.8", "0.9", "1.0", "1.2", "1.3", "1.4", "1.5"};
+				const char *WATTpwr_list[] = {"0.5", "2.0", "5.0"};
+				const unsigned int i = p_vfo->channel.tx_power;
+				if (i == OUTPUT_POWER_USER)
+				{
+					const unsigned int i = g_tx_vfo->channel.tx_power_user;
+					strcpy(str, WATTuser_list[i-1]);
+				}
+					else
+					strcpy(str, WATTpwr_list[i]);
+				strcat(str,"W");
+				UI_PrintStringSmall(str, LCD_WIDTH - (7 * 4), 0, y);
+				}
 			}
 			x += 7 * 5;
 
@@ -1047,21 +1062,6 @@ const char *state_list[] = {"", "BUSY", "BAT LOW", "TX DISABLE", "TIMEOUT", "ALA
 				if (p_vfo->channel.dtmf_decoding_enable)
 					strcpy(str, "DTMF");
 				UI_PrintStringSmall(str, LCD_WIDTH - (7 * 4), 0, y);
-				#else		// Display power in watts instead
-				{
-				const char *WATTuser_list[] = {"0.01", "0.04", "0.14", "0.25", "0.36", "0.50", "0.60", "0.70", "0.81", "0.94", "1.05", "1.18", "1.30", "1.41", "1.54"};
-				const char *WATTpwr_list[] = {"0.50", "2.00", "5.00"};
-				const unsigned int i = p_vfo->channel.tx_power;
-				if (i == OUTPUT_POWER_USER)
-				{
-					const unsigned int i = g_tx_vfo->channel.tx_power_user;
-					strcpy(str, WATTuser_list[i-1]);
-				}
-					else
-					strcpy(str, WATTpwr_list[i]);
-				strcat(str,"w");
-				UI_PrintStringSmall(str, LCD_WIDTH - (7 * 5), 0, y);
-				}
 			#endif
 		}
 
