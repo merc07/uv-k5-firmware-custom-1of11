@@ -72,9 +72,9 @@ const freq_band_table_t FREQ_BAND_TABLE[7] =
 // the first 7 values MUST remain in those same positions
 // so as to remain compatible with the QS config software
 //
-const uint16_t STEP_FREQ_TABLE[16] = {
+const uint16_t STEP_FREQ_TABLE[24] = {
 	250, 500, 625, 1000, 1250, 2500, 833,
-	10, 25, 50, 100, 125, 1500, 3000, 5000, 10000
+	1, 5, 10, 25, 50, 100, 125, 900, 1500, 2000, 3000, 5000, 10000, 12500, 20000, 25000, 50000
 };
 
 // the above step sizes will be sorted to appear to be in order to the user
