@@ -54,7 +54,7 @@ extern const freq_band_table_t BX4819_BAND2;
 
 extern const freq_band_table_t FREQ_BAND_TABLE[7];
 
-// 250, 500, 625, 1000, 1250, 2500, 833, 1, 5, 10, 25, 50, 100, 125, 1500, 3000, 5000, 10000, 12500, 25000, 50000
+// 250, 500, 625, 1000, 1250, 2500, 833, 1, 5, 10, 25, 50, 100, 125, 900, 1500, 2000, 3000, 5000, 10000, 12500, 20000, 25000, 50000
 enum step_setting_e {
 	STEP_2_5kHz = 0,
 	STEP_5_0kHz,
@@ -63,25 +63,28 @@ enum step_setting_e {
 	STEP_12_5kHz,
 	STEP_25_0kHz,
 	STEP_8_33kHz,
-
-	STEP_10Hz,
-	STEP_50Hz,
-	STEP_100Hz,
-	STEP_250Hz,
-	STEP_500Hz,
+// custom steps
+	STEP_0_01kHz,
+	STEP_0_05kHz,
+	STEP_0_1kHz,
+	STEP_0_25kHz,
+	STEP_0_5kHz,
 	STEP_1kHz,
 	STEP_1_25kHz,
+	STEP_9kHz,
 	STEP_15kHz,
+	STEP_20kHz,
 	STEP_30kHz,
 	STEP_50kHz,
 	STEP_100kHz,
 	STEP_125kHz,
+	STEP_200kHz,
 	STEP_250kHz,
-	STEP_500kHz
+	STEP_500kHz,
 };
 typedef enum step_setting_e step_setting_t;
 
-extern const uint16_t STEP_FREQ_TABLE[16];
+extern const uint16_t STEP_FREQ_TABLE[24];
 extern uint16_t       step_freq_table_sorted[ARRAY_SIZE(STEP_FREQ_TABLE)];
 
 #ifdef ENABLE_NOAA
