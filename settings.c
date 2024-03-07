@@ -132,7 +132,7 @@ void SETTINGS_read_eeprom(void)
 				g_eeprom.config.channel[index].mod_mode = MOD_MODE_FM;
 
 			if (g_eeprom.config.channel[index].tx_power_user == 0)
-				g_eeprom.config.channel[index].tx_power_user = 5;
+				g_eeprom.config.channel[index].tx_power_user = 1;
 
 			if (g_eeprom.config.channel[index].squelch_level > 9)
 				g_eeprom.config.channel[index].squelch_level = 0;
