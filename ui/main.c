@@ -693,7 +693,7 @@ const char *state_list[] = {"", "BUSY", "BAT LOW", "TX DISABLE", "TIMEOUT", "ALA
 	{
 		const int          vfo_num    = g_eeprom.config.setting.tx_vfo_num;
 		const unsigned int scrn_chan  = g_eeprom.config.setting.indices.vfo[vfo_num].screen;
-		const unsigned int state      = g_vfo_state[vfo_num];
+		unsigned int state      = g_vfo_state[vfo_num];
 		bool               tx_allowed = false;
 		uint8_t           *p_line1    = g_frame_buffer[1];
 		const vfo_info_t  *p_vfo      = &g_vfo_info[vfo_num];
@@ -1339,7 +1339,7 @@ void UI_DisplayMain(void)
 		#ifdef ENABLE_ALARM
 			if (g_current_function == FUNCTION_TRANSMIT && g_alarm_state == ALARM_STATE_ALARM)
 			{
-				channel = (g_eeprom.config.setting.cross_vfo == CROSS_BAND_OFF) ? g_rx_vfo_num : g_eeprom.config.setting.tx_vfo_num;
+				int channel = (g_eeprom.config.setting.cross_vfo == CROSS_BAND_OFF) ? g_rx_vfo_num : g_eeprom.config.setting.tx_vfo_num;
 				if (channel == vfo_num)
 					state = VFO_STATE_ALARM;
 			}

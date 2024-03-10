@@ -228,6 +228,7 @@ bool                  g_rx_vfo_is_active;
 
 uint16_t              g_alarm_tone_counter_10ms;
 uint16_t              g_alarm_running_counter_10ms;
+uint8_t				  toneCount=0;
 
 uint8_t               g_menu_list_count;
 

@@ -34,7 +34,7 @@ ENABLE_MUTE_RADIO_FOR_VOICE      := 0
 ENABLE_VOX                       := 1
 ENABLE_VOX_MORE_SENSITIVE        := 1
 # Tx Alarm 600 B
-ENABLE_ALARM                     := 0
+ENABLE_ALARM                     := 1
 ENABLE_TX_TONE_HZ                := 1750
 #
 # MDC1200 2.8 kB
@@ -81,9 +81,9 @@ ENABLE_FREQ_SEARCH_LNA           := 0
 ENABLE_FREQ_SEARCH_TIMEOUT       := 0
 ENABLE_CODE_SEARCH_TIMEOUT       := 0
 # scan ignore list 740 B
-ENABLE_SCAN_IGNORE_LIST          := 1
+ENABLE_SCAN_IGNORE_LIST          := 0
 # scan ranges 400 B
-ENABLE_SCAN_RANGES               := 1
+ENABLE_SCAN_RANGES               := 0
 # AM Fix 800 B
 ENABLE_AM_FIX                    := 1
 ENABLE_AM_FIX_SHOW_DATA          := 0

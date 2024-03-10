@@ -303,6 +303,7 @@ extern bool                  g_rx_vfo_is_active;
 
 extern uint16_t              g_alarm_tone_counter_10ms;
 extern uint16_t              g_alarm_running_counter_10ms;
+extern uint8_t				 toneCount;
 extern uint8_t               g_menu_list_count;
 extern uint8_t               g_backup_cross_vfo;
 #ifdef ENABLE_NOAA
