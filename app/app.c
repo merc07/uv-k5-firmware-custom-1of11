@@ -1571,10 +1571,9 @@ void APP_cancel_user_input_modes(void)
 #if defined(ENABLE_ALARM) || (ENABLE_TX_TONE_HZ > 0)
 	static void APP_alarm_off(void)
 	{
-		toneCount=0;
 		if (!g_squelch_open && !g_monitor_enabled)
 			GPIO_ClearBit(&GPIOC->DATA, GPIOC_PIN_SPEAKER);
-
+			
 		if (g_eeprom.config.setting.alarm_mode == ALARM_MODE_TONE)
 		{
 			RADIO_tx_eot();
@@ -1823,25 +1822,25 @@ void APP_process_transmit(void)
 			uint16_t Tone;
 			g_alarm_running_counter_10ms++;
 
-			// loop alarm tone frequency 300Hz ~ 1500Hz ~ 300Hz
-			Tone = 500 + (g_alarm_tone_counter_10ms++ * 50);
-			if (Tone >= ((700 * 2) - 500))
+			// loop alarm tone frequency 500Hz ~ 700Hz ~ 500Hz
+			Tone = 500 + (g_alarm_tone_counter_10ms++ * 10);
+			if (Tone >= 700)
 			{
 				Tone = 500;
+				SYSTEM_DelayMs(50);
 				g_alarm_tone_counter_10ms = 0;
 			}
 		
-			BK4819_SetScrambleFrequencyControlWord((Tone <= 1500) ? Tone : (1500 * 2) - Tone);
+			BK4819_SetScrambleFrequencyControlWord(Tone);
 					
-			if (g_eeprom.config.setting.alarm_mode == ALARM_MODE_TONE && g_alarm_running_counter_10ms == 35)
+			if (g_eeprom.config.setting.alarm_mode == ALARM_MODE_TONE && g_alarm_running_counter_10ms == 120)
 			{
 				#if defined(ENABLE_UART) && defined(ENABLE_UART_DEBUG)
 //					UART_printf("alm tone\n");
 				#endif
 				
 				g_alarm_running_counter_10ms = 0;
-
-				if (g_alarm_state == ALARM_STATE_TX_ALARM && toneCount==3)
+				if (g_alarm_state == ALARM_STATE_TX_ALARM)
 				{
 					g_alarm_state = ALARM_STATE_ALARM;
 
@@ -1852,13 +1851,12 @@ void APP_process_transmit(void)
 					BK4819_Enable_AfDac_DiscMode_TxDsp();
 					BK4819_set_GPIO_pin(BK4819_GPIO5_PIN1_RED, false);          // LED off
 					GUI_DisplayScreen();
-					//GPIO_ClearBit(&GPIOC->DATA, GPIOC_PIN_SPEAKER);
+					GPIO_ClearBit(&GPIOC->DATA, GPIOC_PIN_SPEAKER);
 					//GPIO_SetBit(&GPIOC->DATA, GPIOC_PIN_SPEAKER);
 					APP_alarm_off();
 				}
 				else
 				{
-					toneCount++;
 					g_alarm_state = ALARM_STATE_TX_ALARM;
 					GUI_DisplayScreen();
 					RADIO_enableTX(false);

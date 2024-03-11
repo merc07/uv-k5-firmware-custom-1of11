@@ -686,7 +686,8 @@ void UI_DisplayCenterLine(void)
 	}
 }
 
-const char *state_list[] = {"", "BUSY", "BAT LOW", "TX DISABLE", "TIMEOUT", "ALARM", "VOLT HIGH"};
+//const char *state_list[] = {"", "BUSY", "BAT LOW", "TX DISABLE", "TIMEOUT", "ALARM", "VOLT HIGH"};
+const char *state_list[] = {"", "BUSY", "BAT LOW", "TX DISABLE", "TIMEOUT", "", "VOLT HIGH"};
 
 #ifdef ENABLE_SINGLE_VFO_CHAN
 	void UI_DisplayMainSingle(void)

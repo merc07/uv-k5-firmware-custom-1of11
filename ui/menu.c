@@ -283,7 +283,7 @@ const char g_sub_menu_mem_disp[4][12] =
 	const char g_sub_menu_alarm_mode[2][5] =
 	{
 		"SITE",
-		"TONE"
+		"CALL"
 	};
 #endif
 
